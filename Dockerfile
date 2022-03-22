@@ -13,3 +13,5 @@ RUN dpkg --configure -a
 RUN apt update
 RUN chmod +x install.sh
 RUN ./install.sh 
+
+RUN steamcmd +quit
