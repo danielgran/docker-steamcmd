@@ -1,0 +1,30 @@
+
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Login
+      uses: docker/login-action@v1.14.1
+      with:
+        username: danielgran
+        password: 153297c1-52b1-44a5-be45-22e991be05a7
+    - shell: bash
+      run: |
+        docker build ./build.sh
+    - name: Push
+      run: docker push danielgran/steamcmd:latest
