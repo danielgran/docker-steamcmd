@@ -23,8 +23,7 @@ jobs:
       with:
         username: danielgran
         password: ${{ secrets.DOCKERHUBKEY }}
-    - shell: bash
-      run: |
-        docker build ./build.sh
+    - name: Build
+      run: docker build . -t danielgran/steamcmd:latest
     - name: Push
       run: docker push danielgran/steamcmd:latest
