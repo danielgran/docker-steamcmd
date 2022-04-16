@@ -1,4 +1,4 @@
-FROM danielgran/debian-base
+FROM danielgran/danielgran/a3projbase
 
 WORKDIR /steamcmd
 ENV PATH "$PATH:/usr/games"
